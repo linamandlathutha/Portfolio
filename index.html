@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Your Name</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Your Name</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Hi, I'm Your Name</h1>
+            <p>Developer | Designer | Innovator</p>
+        </section>
+
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>I'm a developer passionate about creating innovative and professional solutions. With expertise in ASP.NET Core MVC, Stripe payments, and crafting stylish interfaces, I aim to deliver quality and simplicity in every project.</p>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project">
+                    <h3>Hotel Booking & Ride Service</h3>
+                    <p>An integrated platform for hotel bookings and ride requests, offering seamless user experiences.</p>
+                </div>
+                <div class="project">
+                    <h3>University Parking Management</h3>
+                    <p>A feature-rich app managing parking spaces with booking, ratings, and user roles.</p>
+                </div>
+                <div class="project">
+                    <h3>Car Wash Application</h3>
+                    <p>A professional app for scheduling and managing car wash services with payment integration.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2>Skills</h2>
+            <ul>
+                <li>ASP.NET Core MVC</li>
+                <li>Azure Blob Storage</li>
+                <li>Stripe Payments</li>
+                <li>HTML, CSS, JavaScript</li>
+                <li>SQL Databases</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
