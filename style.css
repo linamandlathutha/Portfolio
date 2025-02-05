@@ -60,6 +60,112 @@ ul {
     color: #0056b3;
 }
 
+
+/* Define variables for themes */
+:root {
+    --background-color: #f9f9f9;
+    --text-color: #333;
+    --card-bg-color: #fff;
+    --button-bg-color: #007BFF;
+    --button-text-color: #fff;
+}
+
+body.dark-mode {
+    --background-color: #121212;
+    --text-color: #f9f9f9;
+    --card-bg-color: #1e1e1e;
+    --button-bg-color: #444;
+    --button-text-color: #f9f9f9;
+}
+
+/* Apply variables */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card, .about, .skills {
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button, .navbar a {
+    background-color: var(--button-bg-color);
+    color: var(--button-text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Toggle switch styles */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--card-bg-color);
+    transition: 0.4s;
+    border-radius: 20px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text-color);
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: var(--button-bg-color);
+}
+
+input:checked + .slider:before {
+    transform: translateX(20px);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Hero Section */
 .hero {
     text-align: center;
@@ -106,9 +212,6 @@ section h2 {
 
 .project {
     position: relative;
-    background-size: cover;
-    background-position: center;
-    height: 200px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -116,43 +219,35 @@ section h2 {
     transition: transform 0.2s;
 }
 
-.project::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1;
-}
-
 .project:hover {
     transform: translateY(-5px);
 }
 
+.project img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: brightness(0.7);
+    transition: filter 0.3s;
+}
+
+.project:hover img {
+    filter: brightness(1);
+}
+
 .project h3 {
-    position: relative;
-    z-index: 2;
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
     color: #fff;
-    text-align: center;
     font-size: 1.5em;
-    margin: 0;
-    top: 50%;
-    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    text-align: center;
 }
 
-.project[data-image="hotel"] {
-    background-image: url('Screenshot%202024-12-06%20184145.png');
-}
-
-.project[data-image="parking"] {
-    background-image: url('images/parking.jpg');
-}
-
-.project[data-image="carwash"] {
-    background-image: url('images/carwash.jpg');
-}
 
 /* Gallery Modal */
 .modal {
@@ -203,3 +298,124 @@ section h2 {
 .modal .next {
     right: 10px;
 }
+
+/* Skills Section */
+.skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.skills li {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.skills li:hover {
+    transform: translateY(-5px);
+}
+
+.skills img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.skills span {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Skills Section Scroll */
+.skills-scroll-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+}
+
+/* Ensure no wrapping */
+.skills ul {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+       animation: scroll 15s linear infinite;
+}
+
+.skills ul li {
+    flex: 0 0 auto; /* Prevent items from shrinking or wrapping */
+    margin-right: 1em; /* Add some spacing between items */
+}
+
+
+@keyframes scroll {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+
+
+/* Contact Form */
+.contact form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact form label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+.contact form input,
+.contact form textarea,
+.contact form button {
+    width: 100%;
+    margin-bottom: 1em;
+    padding: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.contact form button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact form button:hover {
+    background-color: #0056b3;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9em;
+}
+
